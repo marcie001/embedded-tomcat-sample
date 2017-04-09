@@ -1,0 +1,1 @@
+insert into employees (id, full_name, birth_day, salary) values ('7ac93663-deec-4673-92b9-cd7b31f16003', '鈴木 二郎', '1970-01-01', 1234567);
