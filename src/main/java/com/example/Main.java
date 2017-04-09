@@ -110,15 +110,11 @@ public class Main {
 			String path = main.getPath();
 			wrs = new JarResourceSet(resources, "/WEB-INF/classes",
 					path.substring(path.indexOf(':') + 1, path.indexOf('!')), "/");
-			// リロード無効
-			ctx.setReloadable(false);
 		} else if ("file".equalsIgnoreCase(main.getProtocol())) {
 			Path path = Paths.get(main.getFile()).getParent().getParent();
 			wrs = new DirResourceSet(resources, "/WEB-INF/classes", path.toFile().getAbsolutePath(), "/");
-			// リロード有効
-			ctx.setReloadable(true);
 		} else {
-			throw new IllegalStateException("Main class is not stored in a jar file.");
+			throw new IllegalStateException("Main class is not stored in a jar file or file system.");
 		}
 		resources.addPreResources(wrs);
 		ctx.setResources(resources);
